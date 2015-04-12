@@ -38,6 +38,20 @@
 
 (require 'mozc)
 
+(defgroup mozc-im nil
+  "Mozc-im - Mozc with input-method-function interface."
+  :group 'mozc)
+
+(defcustom mozc-im-activate-hook nil
+  "A list of hooks called on mozc-im activated."
+  :type 'hook
+  :group 'mozc-im)
+
+(defcustom mozc-im-deactivate-hook nil
+  "A list of hooks called on mozc-im deactivated."
+  :type 'hook
+  :group 'mozc-im)
+
 (defvar mozc-im-edit-state nil
   "Mozc's edit state.")
 (make-variable-buffer-local 'mozc-im-edit-state)
