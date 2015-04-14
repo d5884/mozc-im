@@ -80,11 +80,13 @@ INPUT-METHOD isn't used."
     (add-hook 'minibuffer-exit-hook 'mozc-im-exit-from-minibuffer))
 
   (make-local-variable 'input-method-function)
-  (setq input-method-function 'mozc-im-input-method))
+  (setq input-method-function 'mozc-im-input-method)
+  (run-hooks 'mozc-im-activate-hook))
 
 (defun mozc-im-leim-deactivate ()
   "Deactivate mozc-im input method."
-  (kill-local-variable 'input-method-function))
+  (kill-local-variable 'input-method-function)
+  (run-hooks 'mozc-im-deactivate-hook))
 
 (defun mozc-im-exit-from-minibuffer ()
   "Deactivate mozc-im when exit from minibuffer."
