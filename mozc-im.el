@@ -23,7 +23,7 @@
 ;;; Commentary:
 
 ;; This package provide `input-method-function' interface into Mozc.
-;; The difference from original, this can use in `isearch-mode' and `ansi-term'.
+;; The difference from original, this can be used in `isearch-mode' and `ansi-term'.
 
 ;;; Usage:
 
