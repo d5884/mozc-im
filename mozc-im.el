@@ -132,3 +132,8 @@ INPUT-METHOD isn't used."
 (provide 'mozc-im)
 
 ;;; mozc-im.el ends here
+
+;; Local Variables:
+;; indent-tabs-mode: nil
+;; eval: (add-hook 'before-save-hook 'delete-trailing-whitespace nil t)
+;; End:
