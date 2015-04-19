@@ -64,13 +64,13 @@
   "Peek edit state and update `mozc-im-edit-state'."
   (when ad-return-value
     (setq mozc-im-edit-state
-	  (cond
-	   ((mozc-protobuf-get ad-return-value 'output 'preedit)
-	    'preedit)
-	   ((mozc-protobuf-get ad-return-value 'output 'result)
-	    'result)
-	   (t
-	    'empty)))))
+          (cond
+           ((mozc-protobuf-get ad-return-value 'output 'preedit)
+            'preedit)
+           ((mozc-protobuf-get ad-return-value 'output 'result)
+            'result)
+           (t
+            'empty)))))
 
 (defun mozc-im-leim-activate (input-method)
   "Activate mozc-im input method.
@@ -100,27 +100,27 @@ INPUT-METHOD isn't used."
 (defun mozc-im-input-method (key)
   "Consume KEY and following events by mozc."
   (if (or buffer-read-only
-	  overriding-terminal-local-map
-	  overriding-local-map)
+          overriding-terminal-local-map
+          overriding-local-map)
       (list key)
     (let ((input-method-function nil)
-	  (modified-p (buffer-modified-p))
-	  (buffer-undo-list t)
-	  (inhibit-modification-hooks t)
-	  (inhibit-quit t)
-	  (echo-keystrokes 0)
-	  (preedit-start-at (point)))
+          (modified-p (buffer-modified-p))
+          (buffer-undo-list t)
+          (inhibit-modification-hooks t)
+          (inhibit-quit t)
+          (echo-keystrokes 0)
+          (preedit-start-at (point)))
       (unwind-protect
-	  (progn
-	    (mozc-handle-event key)
-	    (while (not (memq mozc-im-edit-state '(nil empty result)))
-	      (mozc-handle-event (read-event)))
-	    (prog1
-		(string-to-list (buffer-substring-no-properties
-				 preedit-start-at (point)))
-	      (delete-region preedit-start-at (point))))
-	(mozc-clean-up-session)
-	(set-buffer-modified-p modified-p)))))
+          (progn
+            (mozc-handle-event key)
+            (while (not (memq mozc-im-edit-state '(nil empty result)))
+              (mozc-handle-event (read-event)))
+            (prog1
+                (string-to-list (buffer-substring-no-properties
+                                 preedit-start-at (point)))
+              (delete-region preedit-start-at (point))))
+        (mozc-clean-up-session)
+        (set-buffer-modified-p modified-p)))))
 
 (register-input-method
  "japanese-mozc-im"
