@@ -23,7 +23,8 @@
 ;;; Commentary:
 
 ;; This package provide `input-method-function' interface into Mozc.
-;; The difference from original, this can be used in `isearch-mode' and `ansi-term'.
+;; The difference from original, this can be used in `isearch-mode' and
+;; Char-mode on `ansi-term'.
 
 ;;; Usage:
 
@@ -33,6 +34,8 @@
 ;;  (setq default-input-method "japanese-mozc-im")
 ;;
 ;; and use `toggle-input-method' for activate.
+;;
+;; Customize variable's are depend on original `mozc-mode'.
 
 ;;; Code:
 
