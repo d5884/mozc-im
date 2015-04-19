@@ -122,12 +122,18 @@ INPUT-METHOD isn't used."
         (mozc-clean-up-session)
         (set-buffer-modified-p modified-p)))))
 
-(register-input-method
- "japanese-mozc-im"
- "Japanese"
- 'mozc-im-leim-activate
- mozc-leim-title
- "Japanese input method with Mozc.")
+(defun mozc-im-register-input-method ()
+  "Register Mozc-im as a input method."
+  (register-input-method
+   "japanese-mozc-im"
+   "Japanese"
+   'mozc-im-leim-activate
+   mozc-leim-title
+   "Japanese input method with Mozc."))
+
+(add-hook 'emacs-startup-hook 'mozc-im-register-input-method)
+
+(mozc-im-register-input-method)
 
 (provide 'mozc-im)
 
