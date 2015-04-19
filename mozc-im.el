@@ -29,7 +29,7 @@
 ;;; Usage:
 
 ;; Put your init.el below:
-;; 
+;;
 ;;  (require 'mozc-im)
 ;;  (setq default-input-method "japanese-mozc-im")
 ;;
