@@ -124,6 +124,9 @@ INPUT-METHOD isn't used."
 
 (defun mozc-im-register-input-method ()
   "Register Mozc-im as a input method."
+  (setq minor-mode-map-alist
+        (cons (cons 'mozc-mode mozc-mode-map)
+              (assq-delete-all 'mozc-mode minor-mode-map-alist)))
   (register-input-method
    "japanese-mozc-im"
    "Japanese"
